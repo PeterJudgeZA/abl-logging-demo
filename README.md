@@ -1,5 +1,5 @@
 # ABL Logging Demo 
-This repo contains examples of filters (writers and formatters) and their builders for the ABL Logging component, in support of the **ABL Logging: From Files to Cloud, with No Code Changes** talk first given at the 2019 SA PUG. The slides are available in this repo (abl_logging.pdf)
+This repo contains examples of filters (writers and formatters) and their builders for the ABL Logging component, in support of the **ABL Logging: From Files to Cloud, with No Code Changes** talk first given at the 2019 SA PUG. The [slides] (abl_logging.pdf) are available in this repo.
 
 
 ## Project structure
@@ -16,7 +16,7 @@ For the translation and elastic search filters, make sure that `$DLC/tty/netlib/
 
 To use the filter(s), update the [configuration file](src/logging.config) as per the filter. The checked-in configuration has examples of all the filters in it.
 
-Run the (src/logging_with_filters.p) procedure. The `src/` folder is really all that needs to be on PROPATH.
+Run the test procedure, src/logging_with_filters.p. The `src/` folder is really all that needs to be on PROPATH.
 
 
 ## Filters
