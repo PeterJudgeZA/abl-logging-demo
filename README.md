@@ -1,5 +1,5 @@
 # ABL Logging Demo 
-This repo contains examples of filters (writers and formatters) and their builders for the ABL Logging component, in support of the **ABL Logging: From Files to Cloud, with No Code Changes** talk first given at the 2019 SA PUG. The slides are available in this repo in abl_logging.pdf.
+This repo contains examples of filters (writers and formatters) and their builders for the ABL Logging component, in support of the **ABL Logging: From Files to Cloud, with No Code Changes** talk first given at the 2019 SA PUG. The [slides](abl_logging.pdf) are also available in this repo.
 
 
 ## Project structure
@@ -65,12 +65,12 @@ To use, add a reference into individual loggers' `filters` array
 
 	"filters": [
 		<filter-1>,
-                {
-                    "name": "TRANSLATION_FILTER",
-                    "toLang": "af",
-                    "serviceURI": "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0",
-                    "apiKey": "<your-api-key-here>"
-                },
+          {
+          	"name": "TRANSLATION_FILTER",
+            "toLang": "af",
+            "serviceURI": "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0",
+            "apiKey": "<your-api-key-here>"
+          },
 		<filter-n>
  	]
 
