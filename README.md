@@ -16,20 +16,21 @@ For the translation and elastic search filters, make sure that `$DLC/tty/netlib/
 
 To use the filter(s), update the [configuration file](src/logging.config) as per the filter. The checked-in configuration file has examples of all the filters in it.
 
-Run the test procedure, src/logging_with_filters.p. The `/src` folder is really all that needs to be on PROPATH.
+Run the test procedure, [src/logging_with_filters.p](src/logging_with_filters.p). The `/src` folder is really all that needs to be on PROPATH.
 
-
-## Filters
 The session demos 3 filters.
 
 
-### Reversed words filter
+## Reversed words filter
 This filter reverses the order of the log message's words.
 
-Type: Format filter
-Filter class: `Example.Filters.ReverseWordsFormat`
-Builder class: <none>
-Config: Add a `REVERSED_WORDS_FILTER` to the `filter` property
+---- | ---- 
+Filter type | Format
+Filter class |  `Example.Filters.ReverseWordsFormat` 
+Builder class | <none> 
+
+### Configuration
+Add a `REVERSED_WORDS_FILTER` to the `filter` property
 
     "filter": {
         "REVERSED_WORDS_FILTER": "Example.Filters.ReverseWordsFormat"
@@ -46,13 +47,16 @@ To use, add a reference into individual loggers' `filters` array.
 
 
 
-### Translation filter
-This filter uses Microsoft Azure's Translation API to translate log messages to a specified language. Doc at (https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/quickstart-csharp-translate). You'll need an account to use this service; free ones are available.
+## Translation filter
+This filter uses Microsoft Azure's Translation API to translate log messages to a specified language. Doc at (https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/quickstart-csharp-translate). You'll need an account to use this service; free tiers are available.
 
-Type: Format filter
-Filter class: `Example.Filters.TranslatedMessageFormat`
-Builder class: `Example.Builders.TranslatedMessageFormatBuilder`
-Config: Add a `TRANSLATION_FILTER` to the `filter` property
+---- | ---- 
+Filter type | Format
+Filter class | `Example.Filters.TranslatedMessageFormat`
+Builder class | `Example.Builders.TranslatedMessageFormatBuilder`
+ 
+### Configuration
+Add a `TRANSLATION_FILTER` to the `filter` property
 
     "filter": {
         "TRANSLATION_FILTER": {
@@ -60,13 +64,12 @@ Config: Add a `TRANSLATION_FILTER` to the `filter` property
             "builder": "Example.Builders.TranslatedMessageFormatBuilder"
         }
 
-
 To use, add a reference into individual loggers' `filters` array
 
 	"filters": [
 		<filter-1>,
           {
-          	"name": "TRANSLATION_FILTER",
+            "name": "TRANSLATION_FILTER",
             "toLang": "af",
             "serviceURI": "https://api.cognitive.microsofttranslator.com/translate?api-version=3.0",
             "apiKey": "<your-api-key-here>"
@@ -76,13 +79,16 @@ To use, add a reference into individual loggers' `filters` array
 
 
 
-### Elastic Search filter
+## Elastic Search filter
 This filter writes log messages to a (local) Elastic Search instance. Elastic Search (and other ELK-stack products) can be downloaded and installed from (https://www.elastic.co/start) .
 
-Type: Writer filter
-Filter class: `Example.Filters.ElasticSearchWriter`
-Builder class: `Example.Builders.ElasticSearchWriterBuilder`
-Config: Add `ELASTIC_SEARCH_FILTER` to the `filter` property
+---- | ---- 
+Filter type | Writer
+Filter class | `Example.Filters.ElasticSearchWriter`
+Builder class | `Example.Builders.ElasticSearchWriterBuilder`
+
+### Configuration
+Add `ELASTIC_SEARCH_FILTER` to the `filter` property
 
     "filter": {
         "ELASTIC_SEARCH_WRITER": {
