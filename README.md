@@ -22,12 +22,13 @@ The session demos 3 filters.
 
 
 ## Reversed words filter
-This filter reverses the order of the log message's words.
+This _format_ filter reverses the order of the log message's words.
 
+Component type  | Class name
 ---- | ---- 
-Filter type | Format
-Filter class |  `Example.Filters.ReverseWordsFormat` 
-Builder class | <none> 
+Filter |  `Example.Filters.ReverseWordsFormat`  
+Builder | <none> 
+	
 
 ### Configuration
 Add a `REVERSED_WORDS_FILTER` to the `filter` property
@@ -48,12 +49,12 @@ To use, add a reference into individual loggers' `filters` array.
 
 
 ## Translation filter
-This filter uses Microsoft Azure's Translation API to translate log messages to a specified language. Doc at (https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/quickstart-csharp-translate). You'll need an account to use this service; free tiers are available.
+This _format_ filter uses Microsoft Azure's Translation API to translate log messages to a specified language. Doc at (https://docs.microsoft.com/en-us/azure/cognitive-services/Translator/quickstart-csharp-translate). You'll need an account to use this service; free tiers are available.
 
+Component type  | Class name
 ---- | ---- 
-Filter type | Format
-Filter class | `Example.Filters.TranslatedMessageFormat`
-Builder class | `Example.Builders.TranslatedMessageFormatBuilder`
+Filter  | `Example.Filters.TranslatedMessageFormat`
+Builder | `Example.Builders.TranslatedMessageFormatBuilder`
  
 ### Configuration
 Add a `TRANSLATION_FILTER` to the `filter` property
@@ -80,12 +81,12 @@ To use, add a reference into individual loggers' `filters` array
 
 
 ## Elastic Search filter
-This filter writes log messages to a (local) Elastic Search instance. Elastic Search (and other ELK-stack products) can be downloaded and installed from (https://www.elastic.co/start) .
+This _writer_ filter writes log messages to a (local) Elastic Search instance. Elastic Search (and other ELK-stack products) can be downloaded and installed from (https://www.elastic.co/start) .
 
+Component type  | Class name
 ---- | ---- 
-Filter type | Writer
-Filter class | `Example.Filters.ElasticSearchWriter`
-Builder class | `Example.Builders.ElasticSearchWriterBuilder`
+Filter  | `Example.Filters.ElasticSearchWriter`
+Builder | `Example.Builders.ElasticSearchWriterBuilder`
 
 ### Configuration
 Add `ELASTIC_SEARCH_FILTER` to the `filter` property
