@@ -1,0 +1,44 @@
+{
+  "name": "Scratch",
+  "version": "1.0",
+  "oeversion": "12.7",
+  "graphicalMode": true,
+  "charset": "iso8859-1",
+  "extraParameters": "-cpcoll basic -zn -D 10000 -inp 32000 -tok 5000 -T ./temp",
+  "buildPath": [
+    {
+      "type": "source",
+      "path": "./src",
+      "includes": "**/**",
+      "excludes": "",
+      "build": "./bin"
+    },
+    {
+      "type": "source",
+      "path": ".",
+      "includes": "**/**",
+      "excludes": "",
+      "build": "./bin"
+    },
+    {
+      "type": "propath",
+      "path": "."
+    },
+    {
+      "type": "propath",
+      "path": "${DLC}/src"
+    },
+    {
+      "type": "propath",
+      "path": "${DLC}/gui/netlib/OpenEdge.Net.pl"
+    },
+    {
+      "type": "propath",
+      "path": "${DLC}/gui"
+    }
+  ],
+  "numThreads": 1,
+  "dbConnections": [],
+  "procedures": [],
+  "profiles": []
+}
