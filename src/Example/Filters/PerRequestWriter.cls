@@ -32,7 +32,7 @@ class Example.Filters.PerRequestWriter implements ILoggerFilter:
 
         /* If not run on PASOE, there will be no request id, and the token will not resolve */
         if index(fileName, StringConstant:CURLY_OPEN) = 0 then do:
-            nfw = new NamedFileWriter(filename, true).
+            nfw = new NamedFileWriter(fileName, true).
             nfw:ExecuteFilter(poEvent).
         end.
 

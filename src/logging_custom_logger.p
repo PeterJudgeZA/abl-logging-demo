@@ -4,13 +4,14 @@
     binary, for any purpose, commercial or non-commercial, and by any
     means.  **/
 /*------------------------------------------------------------------------
-    File        : logger_simple.p
+    File        : logger_custom_logger.p
     Author(s)   : pjudge
     Created     : 2023-05-16
     Notes       :
   ----------------------------------------------------------------------*/
 block-level on error undo, throw.
 
+using Example.Builders.TranslationLoggerBuilder.
 using OpenEdge.Logging.ILogWriter.
 using OpenEdge.Logging.Logger.
 using OpenEdge.Logging.LoggerBuilder.
@@ -18,11 +19,10 @@ using OpenEdge.Logging.LoggerBuilder.
 /* ***************************  Main Block  *************************** */
 define variable logger as ILogWriter no-undo.
 
-/* Need to turn the LOG-MANAGER off since the ABL plugin uses it */
-log-manager:close-log().
-log-manager:logfile-name = ?.
+OpenEdge.Logging.LoggerBuilder:Registry:Put('Translate', get-class(TranslationLoggerBuilder)).
 
-logger = LoggerBuilder:GetLogger('has.no.config').
+logger = LoggerBuilder:GetLogger('Translate.ZU.Something').
+//logger = LoggerBuilder:GetLogger('one').
 
 message
     logger skip

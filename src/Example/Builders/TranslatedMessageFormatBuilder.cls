@@ -15,11 +15,11 @@ block-level on error undo, throw.
 using Example.Filters.TranslatedMessageFormat.
 using OpenEdge.Core.Assert.
 using OpenEdge.Logging.Filter.ILoggerFilter.
-using OpenEdge.Logging.Filter.LogFilterBuilder.
+using OpenEdge.Logging.Filter.ConfigPropertyFilterBuilder.
 using OpenEdge.Net.URI.
 using Progress.Json.ObjectModel.JsonObject.
 
-class Example.Builders.TranslatedMessageFormatBuilder inherits LogFilterBuilder:
+class Example.Builders.TranslatedMessageFormatBuilder inherits ConfigPropertyFilterBuilder:
     /* Constructor */
     constructor public TranslatedMessageFormatBuilder(input filterName as character):
         super(filterName).
@@ -39,10 +39,13 @@ class Example.Builders.TranslatedMessageFormatBuilder inherits LogFilterBuilder:
 
         assign tmf                    = cast(logFilter, TranslatedMessageFormat)
                tmf:To                 = this-object:GetOptionStringValue('toLang':u)
+               /* Properties may be mapped from JSON config automatically
                tmf:ApiKey             = this-object:GetOptionStringValue('apiKey':u)
                tmf:Region             = this-object:GetOptionStringValue('region':u)
+               */
                tmf:TranslationService = URI:Parse(this-object:GetOptionStringValue('serviceURI':u))
                .
+
         return logFilter.
     end method.
 
