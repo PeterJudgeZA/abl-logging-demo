@@ -41,3 +41,5 @@ int('abc').
 catch e as Progress.Lang.Error :
     logger:Error('caught one!', e).
 end catch.
+
+/* eof */
